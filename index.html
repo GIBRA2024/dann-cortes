@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bon Vivant - GIBRA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <script defer>
+        // Script para controlar el video y mostrar la página
+        window.addEventListener("DOMContentLoaded", () => {
+            const video = document.getElementById("videoIntro");
+            const intro = document.getElementById("intro");
+            const contenido = document.querySelector(".container");
+
+            // Al terminar el video, mostrar contenido
+            video.addEventListener("ended", () => {
+                intro.style.display = "none";
+                contenido.style.display = "block";
+                document.body.style.overflow = "auto";
+            });
+
+            // Fallback por si el video no se reproduce
+            setTimeout(() => {
+                intro.style.display = "none";
+                contenido.style.display = "block";
+                document.body.style.overflow = "auto";
+            }, 10000); // 10 segundos
+        });
+    </script>
+    <style>
+        /* Estilos del intro */
+        #intro {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 9999;
+        }
+
+        #intro video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            display: none;
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Intro de video -->
+<div id="intro">
+    <video id="videoIntro" autoplay muted>
+        <source src="Imagenes/AAA.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
+</div>
+
+<!-- Página multilink -->
+<div class="container">
+    <img src="Imagenes/logo.jpeg" alt="Foto de perfil" class="profile-pic">
+
+    <h3>DJ PROFESIONAL</h3>
+
+    <div class="social-buttons">
+        <div class="boton" onclick="window.open('https://wa.me/573153843444', '_blank')">
+            <i class="bi bi-whatsapp"></i>
+            <span>WhatsApp</span>
+        </div>
+        <div class="boton" onclick="window.open('https://www.instagram.com/dannycortesvivasdj/', '_blank')">
+            <i class="bi bi-instagram"></i>
+            <span>Instagram</span>
+        </div>
+        <div class="boton" onclick="window.open('https://www.facebook.com/share/1CA981yVB4/', '_blank')">
+            <i class="bi bi-facebook"></i>
+            <span>Facebook</span>
+        </div>
+    </div>
+
+    <button onclick="descargarContacto()">Guardar Contacto</button>
+
+    <footer>
+        Powered by <a href="https://www.gibracompany.com/" target="_blank" class="underline font-semibold">Gibra Company</a>
+    </footer>
+</div>
+</body>
+</html>
